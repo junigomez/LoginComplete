@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">User_Register</string>
+    <string name="registar">Registar</string>
+    <string name="mostrar">Mostrar</string>
+    <string name="nombre">nombre</string>
+    <string name="apellido">apellido</string>
+    <string name="telefono">telefono</string>
+    <string name="contrasena">contrasena</string>
+    <string name="usuario">usuario</string>
+
+</resources>
