@@ -1,5 +1,6 @@
 package com.example.user_register.model
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
@@ -16,7 +17,7 @@ class ManagerBd (val context: Context){
     fun openBdRd(){
         bd = helperbd.readableDatabase
     }
-
+    @SuppressLint("SuspiciousIdentation")
     fun insertDataUser(nombre: String, apellido: String, telefono: String, cedula: String, contrasena: String, usuario: String): Long{
         openBDWr()
 
@@ -35,7 +36,7 @@ class ManagerBd (val context: Context){
         val userList = ArrayList<Usuario>()
         openBdRd()
 
-        val cursor: Cursor = bd.rawQuery("SELECT * FROM usuario", null)
+        val cursor: Cursor = bd.rawQuery("SELECT * FROM register_user", null)
         if (cursor.moveToFirst()){
 
             do {
@@ -60,5 +61,15 @@ class ManagerBd (val context: Context){
 
         }
         return userList
+    }
+    fun login(usuario: String, contrasena: String): Boolean{
+        openBdRd()
+
+        val cursor: Cursor = bd.rawQuery("SELECT * FROM register_user WHERE usuario = ? AND contrasena = ?",
+            arrayOf(usuario, contrasena)
+        )
+        val result = cursor.count >0
+        cursor.close()
+        return result
     }
 }

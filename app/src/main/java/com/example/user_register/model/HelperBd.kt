@@ -11,6 +11,7 @@ class HelperBd (
 
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL(Constantes.TABLA)
+        db?.execSQL(Constantes.LOGIN)
 
     }
 

@@ -1,5 +1,6 @@
 package com.example.user_register
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -12,6 +13,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+
         val editnombre = findViewById<EditText>(R.id.editNombre)
         val editapellido = findViewById<EditText>(R.id.editApellido)
         val edittelefono = findViewById<EditText>(R.id.editTelefono)
@@ -19,6 +22,16 @@ class MainActivity : AppCompatActivity() {
         val editcontrasena = findViewById<EditText>(R.id.editContrasena)
         val editusuario = findViewById<EditText>(R.id.editUsuario)
         val btnregistrar = findViewById<Button>(R.id.button_Registro)
+        val btnmostrar = findViewById<Button>(R.id.button_Mostar)
+
+
+        btnmostrar.setOnClickListener {
+            val intent = Intent(this, ControladoresActivity::class.java)
+            startActivity(intent)
+
+        }
+
+
 
         btnregistrar.setOnClickListener {
             val nombre = editnombre.text.toString()
@@ -38,8 +51,11 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "ERROR AL RECIBIR LOS DATOS" + resul, Toast.LENGTH_SHORT).show()
             }
 
+
         }
 
 
     }
+
+
 }
